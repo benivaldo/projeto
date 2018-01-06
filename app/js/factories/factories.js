@@ -30,7 +30,7 @@
 		        }).then(function successCallback(response) {
 		        	return response.data;
 				}, function errorCallback(response) {
-					alert(response.statusText);
+					alert(response.data.errorMessage);
 				});
 			},
 		}        
@@ -82,13 +82,6 @@
         			scopeCtrl.selectedIndex = scopeCtrl.tabs.indexOf(index);
 					return false;
 	        	}
-	        	/*var teste = $filter('filter')(scopeCtrl.tabs, {title: title}, true)[0];
-	        	if (teste != undefined) {
-	        		if (Object.keys(teste).length > 0) {
-	        			scopeCtrl.selectedIndex = 0;
-						return false;
-					}
-	        	}*/
 
 	        	$templateRequest(templateUrl).then(function(template) {
 	  	        		view = "<div class=\"div-tab-content\" data-abas=\""+aba+"\" id=\""+aba+"\" data-name =\""+title+"\">"+template+"</div>";
