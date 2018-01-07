@@ -19,33 +19,34 @@
   <table class="table table-sm table-condensed">
     <thead>
       <tr>
-        <td>
+        <td class="col-sm-1">
           <a href="" ng-click="sortType = 'id'; sortReverse = !sortReverse">
             Id 
             <span class="glyphicon sort-icon" ng-show="sortType == 'id'" ng-class="{'glyphicon-chevron-up':sortReverse,'glyphicon-chevron-down':!sortReverse}"></span>
           </a>
         </td>
-        <td>
+        
+        <td class="col-sm-3">
           <a href="" ng-click="sortType = 'email'; sortReverse = !sortReverse">
           E-mail
           	<span class="glyphicon sort-icon" ng-show="sortType == 'email'" ng-class="{'glyphicon-chevron-up':sortReverse,'glyphicon-chevron-down':!sortReverse}"></span>
           </a>
         </td>
         
-        <td>
+        <td class="col-sm-5">
           <a href="" ng-click="sortType = 'nome'; sortReverse = !sortReverse">
           Nome
           	<span class="glyphicon sort-icon" ng-show="sortType == 'nome'" ng-class="{'glyphicon-chevron-up':sortReverse,'glyphicon-chevron-down':!sortReverse}"></span>
           </a>
         </td>
-        <td>
+        <td class="col-sm-2">
           <a href="" ng-click="sortType = 'created_at'; sortReverse = !sortReverse">
           Data
           	<span class="glyphicon sort-icon" ng-show="sortType == 'created_at'" ng-class="{'glyphicon-chevron-up':sortReverse,'glyphicon-chevron-down':!sortReverse}"></span> 
           </a>
         </td>
-        <td></td>
-        <td><a ng-click="add(0)" class="btn btn-sm btn-primary">Novo</a></td>
+        <td class="col-sm-2"></td>
+        <td class="col-sm-2"><a ng-click="add(0)" class="btn btn-sm btn-primary">Novo</a></td>
       </tr>
     </thead>
     

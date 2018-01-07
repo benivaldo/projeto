@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 03-Jan-2018 às 23:57
+-- Generation Time: 07-Jan-2018 às 13:47
 -- Versão do servidor: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -44,7 +44,9 @@ INSERT INTO `candidatos` (`id`, `email`, `nome`, `updated_at`, `created_at`) VAL
 (1, 'jose.benivaldo@gmail.com', 'Jose benivaldo Lima da Silva', '2018-01-03 20:59:19', '2018-01-03 02:00:00'),
 (2, 'adilson@email.com', 'Adilson dos Santos', '2018-01-03 21:13:59', '2018-01-03 21:13:59'),
 (3, 'carlos.ribeiro@email.com', 'Carlos Ribeiro', '2018-01-03 21:53:49', '2018-01-03 21:53:49'),
-(10, 'jose.benivaldo@gmail.com', 'teste', '2018-01-03 22:30:38', '2018-01-03 22:30:38');
+(10, 'jose.benivaldo@uoll.com', 'Jose', '2018-01-07 12:30:14', '2018-01-03 22:30:38'),
+(11, 'marcos@email.com.br', 'Marcos da Silva', '2018-01-06 17:01:28', '2018-01-06 17:01:28'),
+(12, 'carlos.andre@email.com', 'Carlos Ribeiro', '2018-01-06 20:22:43', '2018-01-06 20:22:43');
 
 -- --------------------------------------------------------
 
@@ -69,7 +71,8 @@ CREATE TABLE `users` (
 -- Indexes for table `candidatos`
 --
 ALTER TABLE `candidatos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uc_email` (`email`);
 
 --
 -- Indexes for table `users`
@@ -85,7 +88,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `candidatos`
 --
 ALTER TABLE `candidatos`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `users`
 --

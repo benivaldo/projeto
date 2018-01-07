@@ -33,19 +33,24 @@ class CandidatoController extends Controller
                 'resultSet' => '',
                 'errorMessage' =>  $validator->errors()->all(),
                 'id' => ''
-            ], 422);
+            ], 412);
         }
-        
-        $candidato = new $this->candidato;
-        $candidato->email = $request->input('email');
-        $candidato->nome = $request->input('nome');
-        $candidato->save();
-        
-        return response()->json([
-            'resultSet' => $candidato,
-            'errorMessage' =>  'Operação conculuída com sucesso.',
-            'id' => $candidato->id,
-        ], 201);
+        try {
+            $candidato = new $this->candidato;
+            $candidato->email = $request->input('email');
+            $candidato->nome = $request->input('nome');
+            $candidato->save();
+            
+            return response()->json([
+                'resultSet' => $candidato,
+                'errorMessage' =>  'Operação conculuída com sucesso.',
+                'id' => $candidato->id,
+            ], 201);
+        } catch(\Exception $e) {
+            return response()->json([
+                'errorMessage' =>  $e->getMessage(),
+            ], 404);
+        }
     }
 
     public function get($id) 
@@ -79,18 +84,24 @@ class CandidatoController extends Controller
                     'resultSet' => $candidato,
                     'errorMessage' =>  $validator->errors()->all(),
                     'id' => $id,
-                ], 422);
+                ], 412);
             } else {
-                $candidato = $this->candidato->query()->find($id);
-                $candidato->email = $request->input('email');
-                $candidato->nome = $request->input('nome');
-                $candidato->save();
-
-                return response()->json([
-                    'resultSet' => $candidato,
-                    'errorMessage' =>  'Operação conculuída com sucesso.',
-                    'id' => $id,
-                ]);
+                try {
+                    $candidato = $this->candidato->query()->find($id);
+                    $candidato->email = $request->input('email');
+                    $candidato->nome = $request->input('nome');
+                    $candidato->save();
+    
+                    return response()->json([
+                        'resultSet' => $candidato,
+                        'errorMessage' =>  'Operação conculuída com sucesso.',
+                        'id' => $id,
+                    ]);
+                } catch(\Exception $e) {
+                    return response()->json([
+                        'errorMessage' =>  $e->getMessage(),
+                    ], 404);
+                }
             }
         } else {
             return response()->json([

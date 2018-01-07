@@ -11,9 +11,9 @@
             	$scope.candidatos = data.resultSet;
             });
  
-			$scope.sortType     = 'id'; // set the default sort type
-			$scope.sortReverse  = false;  // set the default sort order
-			$scope.searchCandidato   = '';     // set the default search/filter term
+			$scope.sortType     = 'id'; 
+			$scope.sortReverse  = false;  
+			$scope.searchCandidato   = ''; 
         }
         load();
  
@@ -123,7 +123,6 @@
          	email: '',
         	nome: ''
         };
-   	
     	
     	var load = function(id) {           	
       
